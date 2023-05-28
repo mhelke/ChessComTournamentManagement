@@ -13,7 +13,7 @@ require(dplyr)
 #' @description Returns players ineligible to participate in the tournament based on the given criteria
 #' @param tournament_id ID of the tournament
 #' @param max_timeout The maximum allowed timeout percentage required to participate
-#' @param max_move_speed The maximum time per move required to participate
+#' @param max_move_speed The maximum time per move required to participate (in hours)
 #' @return Data frame of ineligible players
 #' @export
 getIneligiblePlayers() <- function(tournament_id, max_timeout, max_move_speed) {
