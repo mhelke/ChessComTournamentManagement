@@ -16,7 +16,7 @@ require(dplyr)
 #' @param max_move_speed The maximum time per move required to participate (in hours)
 #' @return Data frame of ineligible players
 #' @export
-getIneligiblePlayers() <- function(tournament_id, max_timeout = NA, max_move_speed = NA) {
+getIneligiblePlayers <- function(tournament_id, max_timeout = NA, max_move_speed = NA) {
   print(paste0("Fetching registered tournament players for tournament ", tournament_id))
   baseUrl <- "https://api.chess.com/pub/tournament/"
   endpoint <- paste0(baseUrl, tournament_id, sep = "", collapse = NULL)
