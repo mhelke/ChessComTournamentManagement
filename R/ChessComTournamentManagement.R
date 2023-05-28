@@ -24,7 +24,7 @@ getIneligiblePlayers() <- function(tournament_id, max_timeout, max_move_speed) {
   tournament_details_raw <- try(fromJSON(toString(endpoint), flatten = TRUE))
 
   if(class(tournament_details_raw) == "try-error") {
-    stop("Error: matches cannot be found")
+    stop("Error: tournament cannot be found")
   }
 
   # Extract the registered players
