@@ -13,10 +13,10 @@ require(dplyr)
 #' @description Returns players ineligible to participate in the tournament based on the given criteria
 #' @param tournament_id ID of the tournament
 #' @param max_timeout The maximum allowed timeout percentage required to participate
-#' @param min_move_speed The minimum time per move required to participate
+#' @param max_move_speed The maximum time per move required to participate
 #' @return Data frame of ineligible players
 #' @export
-getIneligiblePlayers() <- function(tournament_id, max_timeout, min_move_speed) {
+getIneligiblePlayers() <- function(tournament_id, max_timeout, max_move_speed) {
   print(paste0("Fetching registered tournament players for tournament ", tournament_id))
   baseUrl <- "https://api.chess.com/pub/tournament/"
   endpoint <- paste0(baseUrl, tournament_id, sep = "", collapse = NULL)
@@ -48,7 +48,7 @@ getIneligiblePlayers() <- function(tournament_id, max_timeout, min_move_speed) {
 
   # Filter on players who do not meet the requirements to participate
   ineligible_players <- user_stats %>%
-    filter(timeout_percent > max_timeout | time_per_move > min_move_speed)
+    filter(timeout_percent > max_timeout | time_per_move > max_move_speed)
 
   return(user_stats)
 }
