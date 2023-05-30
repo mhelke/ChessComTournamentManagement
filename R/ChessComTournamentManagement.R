@@ -118,7 +118,7 @@ getPlayersToInviteFromClub <- function(club_id, max_timeout = NA, max_move_speed
   eligible_members <- all_club_members_stats %>%
     anti_join(ineligible_players, by = "username") %>%
     filter(total_games > min_games) %>%
-    filter(last_online > Sys.Date() - 7)
+    filter(last_online > Sys.Date() - 7) # Online in the past 7 days
 
   return(eligible_members)
 }
