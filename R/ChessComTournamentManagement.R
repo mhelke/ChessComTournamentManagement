@@ -68,6 +68,10 @@ getIneligiblePlayers <- function(tournament_id, max_timeout = NA, max_move_speed
   return(ineligible_players)
 }
 
+###############
+### Invites ###
+###############
+
 #' @description Get a list of players within a given club who are eligible to join a tournament with the given parameters
 #' @param club_id ID of the club you want to invite members from
 #' @param max_timeout The maximum allowed timeout percentage required to participate
