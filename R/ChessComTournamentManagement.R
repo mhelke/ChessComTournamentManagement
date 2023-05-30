@@ -136,7 +136,7 @@ getPlayersToInviteFromClub <- function(club_id, max_timeout = NA, max_move_speed
   user_profile <- try(fromJSON(toString(endpoint), flatten = TRUE)) # raw data of member activity (username, join date)
 
   if(class(user_profile) == "try-error") {
-    stop(paste("Error: user ", player, " cannot be found", sep = "", collapse = NULL))
+    warning(paste("Error: user ", player, " cannot be found", sep = "", collapse = NULL))
   }
 
   user_profile <- as.data.frame(user_profile)
@@ -146,7 +146,7 @@ getPlayersToInviteFromClub <- function(club_id, max_timeout = NA, max_move_speed
   user_stats_raw <- try(fromJSON(toString(endpoint), simplifyVector = TRUE, simplifyDataFrame = TRUE, flatten = TRUE))
 
   if(class(user_stats_raw) == "try-error") {
-    stop(paste("Error: stats for user ", player, " cannot be found", sep = "", collapse = NULL))
+    warning(paste("Error: stats for user ", player, " cannot be found", sep = "", collapse = NULL))
   }
 
   user_stats_unlisted <- unlist(user_stats_raw , use.names = TRUE)
