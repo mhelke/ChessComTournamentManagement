@@ -4,7 +4,7 @@
 
 ChessComTournamentManagement is a convenient package that will filter out players in a daily tournament who have become ineligible to participate post-registration. Avoid checking each player's profile individually and let the work be done for you. It's easy to use and only requires the tournament ID, maximum timeout percentage set for the tournament, and maximum time per move set for the tournament.
 
-#### Details:
+#### Filter out ineligible players post-registration
 
 Provide the following information:
   * Tournament ID
@@ -15,6 +15,21 @@ Ineligible players are returned with the following data:
   * Username
   * Timeout percentage in the past 90 days
   * Time per move in the past 90 days
+  
+#### Invite only players eligible to join from a given club
+
+Provide the following information:
+  * Club ID
+  * Maximum timeout percentage in the past 90 days
+  * Maximum allowed time per move in the past 90 days
+  * Minimum completed games required
+
+Eligible players are returned with the following data:
+  * Username
+  * Timeout percentage in the past 90 days
+  * Time per move in the past 90 days
+  * The number of games they've played
+  * The date they were last online (within the past week)
 
 ## How to install
 
