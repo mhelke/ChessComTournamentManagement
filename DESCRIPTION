@@ -1,7 +1,7 @@
 Package: ChessComTournamentManagement
 Type: Package
 Title: Manage players in a chess.com daily tournament
-Version: 1.1.0
+Version: 1.1.1
 Author: Matthew Helke
 Maintainer: Matthew Helke <matthewhelke52@gmail.com>
 Description: Easily filter players who have become ineligible to play in the tournament since registration based on the following criteria
