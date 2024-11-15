@@ -143,6 +143,13 @@ getPlayersToInviteFromClub <- function(club_id, max_timeout = NA, max_move_speed
     warning(paste("Error: user ", player, " cannot be found", sep = "", collapse = NULL))
   }
 
+  # Chess.com add an entry which is a list of all streaming platforms the user is active on.
+  # This list causes converting to a data frame to fail. The information is irrelevant to this project, so it's removed.
+  if ("streaming_platforms" %in% names(user_profile)) {
+    user_profile <-
+      user_profile[-which(names(user_profile) == "streaming_platforms")]
+  }
+
   user_profile <- as.data.frame(user_profile)
 
   baseUrl <- "https://api.chess.com/pub/player/"
@@ -154,7 +161,6 @@ getPlayersToInviteFromClub <- function(club_id, max_timeout = NA, max_move_speed
   }
 
   user_stats_unlisted <- unlist(user_stats_raw , use.names = TRUE)
-
   user_stats <- as.data.frame(t(user_stats_unlisted))
   seconds_in_hour <- 60*60
 
